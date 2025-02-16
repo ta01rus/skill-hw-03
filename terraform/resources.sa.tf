@@ -1,4 +1,5 @@
 // Create SA
+
 resource "yandex_iam_service_account" "sa" {
   folder_id = local.folder_id
   name      = "tf-turar-sa"

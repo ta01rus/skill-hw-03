@@ -6,8 +6,12 @@ users:
     sudo: 'ALL=(ALL) NOPASSWD:ALL'
 
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4ODJbYiAATgkf3vNgowTy7R4KocaYW5q4iQBK8iOMzkucO6-Cueolrje6rzP5HC5CGJ7b2xE5E7YvdREYfxi8WQkMdkccAUxWYlbzYPO7mxxf4qU2PyzLfuWfmBWzxE84IeaBvlzE6i/sXHilx8Z8hwtQ1T1KBIroJoAcRUinzR6BuabUwA70J0rWvJ3VhZlcf+bW3NdE0Z3G0TeNG1+lgjXtAboiUGqd9/uflJWFXuc90u5kI3S/VNrJYqNx2LVZv0Gz1sAwrHgkyUJ5HYS3XWrVbdfk9H+DA+Q9fdn/tmRQkGWOtrNBjNOcr6RMlx8oHkoiNjvaq5dMbk/KEd+I2+EvfjV9ckpNyZYwszwrz5xuaY1z2as9KAjpNnwaERFTIggzs7ictCzQJxHYJVehnCSdHrW+oG4EO7ihTmKmOPLhiwBxv9FQMYoUEkGw2jDzMTw8u88Eysr+goXy/q0S7mj5DSllKNQ1OHbuPNi2Uwlrk9jvdIX8PFVaqKclTk= artur@Cronoss
+       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDv66NsCtj1v9z77M9eKo9Ug59xr2bpDAViz54wwt2b3HzKVMKnzEI/7viQHlv1jdFJgEKcFsjrGufoa8I0keJK1Sc4OGwM2fC2vn4BdhGFUBhbgXepGhOsOUR4QHrnmD7QFtPJmbFTY94ACYeITHs5u5MMGxR+zaw18l3FikR093urh0vHALlLdVAdHPw+aG10LF7s4wwiU8bV/hlw+vq0wqJhynq54qL8xiIaPZix0lsTj4DBSII0i72zYcACKw3qifDNdWUG5/0ahJIHmRE7MHs1UBwRBqmg0ApMbOqYKnd840a79zPyJfk9UCwAAPu2bCktJvz8BhpD4lJv23gYy2/cxksGtdBgXISgF6teHq3VfwD4MUHZHVe/m9iiX3ASBzG73Sm2xXlihJ/e5TDNZDC4o/fdo08T2llcqnY06sPK6rrzp0CmxAS+DoMGeX9zNBr3WjbxXnMq7ezzVBaww5b7sfaaXQAtnEXzMRyJmUlCkSSHU3+IxlkdE421CH8= artur@tessla       
 
+  - name: ansible
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
 
     ed25519_private: |
         -----BEGIN OPENSSH PRIVATE KEY-----
@@ -55,12 +59,15 @@ users:
     ssh_deletekeys: false
 
 write_files:
-  - path: "/usr/local/etc/ansible.sh"
+  - path: "/usr/local/etc/ansible.sh"  
     permissions: "755"
-    content: |
-        # Add Docker's official GPG key:
-        python3 -m pip install --user ansible
-    defer: true        
+    content: | 
+        #!/bin/bash   
+        sudo apt update &&
+        sudo apt --yes --force-yes install software-properties-common &&
+        sudo add-apt-repository --yes --update ppa:ansible/ansible && 
+        sudo apt --yes --force-yes install ansible
+    defer: true
 runcmd:
   - ["/usr/local/etc/ansible.sh"]  
 

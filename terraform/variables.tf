@@ -1,7 +1,7 @@
 
 locals {
  folder_id = "b1g80b4gqo18ms9etro8"
-  cloud_id =  "b1grju6gtui1vcmq31o8"
+ cloud_id =  "b1grju6gtui1vcmq31o8"                
 }
 
 locals {
