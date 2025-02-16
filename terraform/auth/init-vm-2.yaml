@@ -5,7 +5,8 @@ users:
     shell: /bin/bash
     sudo: 'ALL=(ALL) NOPASSWD:ALL'
     ssh_authorized_keys:      
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBRVZwHZgD/XwZUloqutzAOsA/QHaCUilXoVLb4NrxyC3EPNsPXGxklMA01VLPTgmkr2TOmmahChaC9dMeyDLSsRQT+UIWeVWa8BIY/2wpgXtnGC4KUiJA89Uoz5deJotIVclTbMpS1HPHMPC/8hcQBGSJcMwRLKEOnHRLdgOOCqjqUaFW546mxXyZ8LR4fis0KDKn1OBbjnnHqVLckpyiDtnRhsdYNNvfo+kylgfjx3j8k+oqGV+TVtjaeShEwcDos0KkiQ1uV2kmSuAC5V2adrpXtks3/xnTEvEcmxH478WqN74KgxGT9IFTBmN65soHCOZj5kyvn9mE8x0Bq2twFT4A17iDL6y0T+bOW0qlWZwYyq4+934LtOf+9SxBnmpQrzRLQJjeecosO2CNv0Z3JtYDQCXeaupFiC10T9oLA28VA7FKjIKppjjxnHP8eia3JxIktxqSGUswHH0adewLQ5nV83Q8A7N83dAelOjWBG3A/z6AcyJU0GtbtW+s= artur@Cronoss
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBRVZwHZgD/XwZUloqutzAOsA/QHaCUilXoVLb4NrxyC3EPNsPXGxklMA01VLPTgmkur2TOmmahChaC9dMeyDLSsRQT+UIWeVWa8BIY/2wpgXtnGC4KUiJyA89Uoz5deJotIVclTbMpS1HPHMPC/8hcQBGSJcMwRLKEOnHRTLdgOOCqjqUaFW546mxXyZ8LR4fis0KDKn1OBbjnnHqVLckpyiDtnRhsdYNNvfo+kylgfjx3j8k+oqGV+TVtjaeShEwcDos0KkiQ1uV2kmSuAC5V2adrpXtks3/xnTEvEcmxH478WqN74KgxGT9IFTBmN65soHCOZj5kyvn9mE8x0Bq2twFT4A17iDL6y0T+bOW0qlWZwYyq4+934LtOf+9SxBnmpQrzRLQJjeecosO2CNv0Z3JtYDQCXeaupFiC10T9oLA28VA7FKjIKppjjxnHP8eia3JxIktxqSGUswHH0adewLQ5nV83Q8A7N83dAelOjWBG3A/z6AcyJU0GtbtW+s= artur@Cronoss
+    ssh_deletekeys: false      
 
 # write_files:
 #   - path: "/usr/local/etc/repository.sh"

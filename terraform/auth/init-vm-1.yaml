@@ -53,10 +53,15 @@ users:
         T1cjEVzCLUQ40AAAANYXJ0dXJAQ3Jvbm9zcwECAwQFBg==
         -----END OPENSSH PRIVATE KEY-----  
         
-    ed25519_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4ODJbYiAATgkf3vNgowTp7R4KocaYW5q4iQBK8iOMzkucO6/Cueolrje6rzP5HC5CGJ7b2xE5E7YvdRwYfxi8WQkMdkccAUxWYlbzYPO7mxxf4qU2PyzLfuWfmBWzxE84IeaBvlzE6i/sXHilx8Z8hwtQ1T1KBIroJoAcRUinzR6BuabUwA70J0rWvJ3VhZlcf+bW3NdE0Z3G0TeNG1+lgjXtAboiUGqd9/uflJWFXuc90u5kI3S/VNrJYqNx2LVZv0Gz1sAwrHgkyUJ5HYS3XWrVbdfk9H+DA+Q9fdn/tmRQkGWOtrNBjNOcr6RMlx8oHkoiNjvaq5dMbk/KEd+I2+EvfjV9ckpNyZYwszwrz5xuaY1z2as9KAjpNnwaERFTIggzs7ictCzQJxHYJVehnCSdHrW+oG4EO7ihTmKmOPLhiwBxv9FQMYoUEkGw2jDzMTw8u88Eysr+goXy/q0S7mj5DSllKNQ1OHbuPNi2Uwlrk9jvdIX8PFVaqKclTk= artur@Cronoss      
+    ed25519_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4ODJbYiAATgkf3vNgowTp7R4KocaYW5q4iQBK8iOMzkucO6/Cueolrje6rzP5HC5CGJ7b2xE5E7YvdRwYfxi8WQkMdkccAUxWYlbzYPO7mxxf4qU2PyzLfuWfmBWzxE84IeaBvlzE6i/sXHilx8Z8hwtQ1T1KBIroJoAcRUinzR6BuabUwA70J0rWvJ3VhZlcf+bW3NdE0Z3G0TeNG1+lgjXtAboiUGqd9/uflJWFXuc90u5kI3S/VNrJYqNx2LVZv0Gz1sAwrHgkyUJ5HYS3XWrVbdfk9H+DA+Q9fdn/tmRQkGWOtrNBjNOcr6RMlx8oHkoiNjvaq5dMbk/KEd+I2+EvfjV9ckpNyZYwszwrz5xuaY1z2as9KAjpNnwaERFTIggzs7ictCzQJxHYJVehnCSdHrW+oG4EO7ihTmKmOPLhiwBxv9FQMYoUEkGw2jDzMTw8u88Eysr+goXy/q0S7mj5DSllKNQ1OHbuPNi2Uwlrk9jvdIX8PFVaqKclTk= artur@Cronoss
 
 
     ssh_deletekeys: false
+chpasswd:
+  list: |
+     artur:12345678
+     ansible:12345678
+
 
 write_files:
   - path: "/usr/local/etc/ansible.sh"  
