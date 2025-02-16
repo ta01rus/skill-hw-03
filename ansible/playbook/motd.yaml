@@ -1,0 +1,8 @@
+- hosts: test
+  gather_facts: yse
+  tasks:
+  - name: edit motd file 
+    template:
+      src: /etc/ansible/playbooks/templates/motd.j2
+      dest: /ets/motd
+

@@ -1,0 +1,38 @@
+#cloud-config
+users:
+  - name: artur
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:      
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBRVZwHZgD/XwZUloqutzAOsA/QHaCUilXoVLb4NrxyC3EPNsPXGxklMA01VLPTgmkr2TOmmahChaC9dMeyDLSsRQT+UIWeVWa8BIY/2wpgXtnGC4KUiJA89Uoz5deJotIVclTbMpS1HPHMPC/8hcQBGSJcMwRLKEOnHRLdgOOCqjqUaFW546mxXyZ8LR4fis0KDKn1OBbjnnHqVLckpyiDtnRhsdYNNvfo+kylgfjx3j8k+oqGV+TVtjaeShEwcDos0KkiQ1uV2kmSuAC5V2adrpXtks3/xnTEvEcmxH478WqN74KgxGT9IFTBmN65soHCOZj5kyvn9mE8x0Bq2twFT4A17iDL6y0T+bOW0qlWZwYyq4+934LtOf+9SxBnmpQrzRLQJjeecosO2CNv0Z3JtYDQCXeaupFiC10T9oLA28VA7FKjIKppjjxnHP8eia3JxIktxqSGUswHH0adewLQ5nV83Q8A7N83dAelOjWBG3A/z6AcyJU0GtbtW+s= artur@Cronoss
+
+write_files:
+  - path: "/usr/local/etc/repository.sh"
+    permissions: "755"
+    content: |
+        # Add Docker's official GPG key:
+        sudo apt-get update
+        sudo apt-get install ca-certificates curl
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+        # Add the repository to Apt sources:
+        echo \
+          "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+          $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+          sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update
+    defer: true
+write_files:
+  - path: "/usr/local/etc/startup.sh"
+    permissions: "755"
+    content: |
+      #!/bin/bash      
+
+      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    defer: true
+runcmd:
+  - ["/usr/local/etc/repository.sh"]
+  - ["/usr/local/etc/startup.sh"]      
