@@ -1,0 +1,66 @@
+#cloud-config
+users:
+  - name: artur
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4ODJbYiAATgkf3vNgowTy7R4KocaYW5q4iQBK8iOMzkucO6-Cueolrje6rzP5HC5CGJ7b2xE5E7YvdREYfxi8WQkMdkccAUxWYlbzYPO7mxxf4qU2PyzLfuWfmBWzxE84IeaBvlzE6i/sXHilx8Z8hwtQ1T1KBIroJoAcRUinzR6BuabUwA70J0rWvJ3VhZlcf+bW3NdE0Z3G0TeNG1+lgjXtAboiUGqd9/uflJWFXuc90u5kI3S/VNrJYqNx2LVZv0Gz1sAwrHgkyUJ5HYS3XWrVbdfk9H+DA+Q9fdn/tmRQkGWOtrNBjNOcr6RMlx8oHkoiNjvaq5dMbk/KEd+I2+EvfjV9ckpNyZYwszwrz5xuaY1z2as9KAjpNnwaERFTIggzs7ictCzQJxHYJVehnCSdHrW+oG4EO7ihTmKmOPLhiwBxv9FQMYoUEkGw2jDzMTw8u88Eysr+goXy/q0S7mj5DSllKNQ1OHbuPNi2Uwlrk9jvdIX8PFVaqKclTk= artur@Cronoss
+
+
+    ed25519_private: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+        NhAAAAAwEAAQAAAYEAkuDgyW2IgAE4JH97zYKME8u0eCqHGmFuauIkASvIjjM5LnDuvwrn
+        qJa43uq8z+RwuQhie29sRORO2L3URGH8YvFkJDHZHHAFMVmJW82Dzu5scX+KlNj8sy37ln
+        5gVs8RPOCHmgb5cxOov7Fx4pcfGfIcLUNU9SgSK6CaAHEVIp80egbmm1MAO9CdK1ryd1YW
+        ZXH/m1tzXRNGdxtE3jRtfpYI17QG6IlBqnff7n5SVhV7nPdLuZCN0v1TayWKjcdi1Wb9Bs
+        9bAMKx4JMlCeR2Et11q1W3X5PR/gwPkPX3Z/7ZkUJBljrazQYzTnK+kTJcfKB5KIjY72qu
+        XTG5PyhHfiNvhL341fXJKTcmWMLM8K8+cbmmNc9mrPSgI6TZ8GhERUyIIM7O4nLQs0CcR2
+        CVXoZwknR61vqBuBDu4oU5ipjjy4YsAcb/RUDGKFBJBsNow8zE8PLvPBMrK/oKF8v6tEu5
+        o+Q0pZSjUNTh27jzYtlMJa5PY73SF/DxVWqinJU5AAAFiEPxaVlD8WlZAAAAB3NzaC1yc2
+        EAAAGBAJLg4MltiIABOCR/e82CjBPLtHgqhrphbmriJAEryI4zOS5w7r8K56iWuN7qvM/k
+        cLkIYntvbETkTti91ERh/GLxZCQx2RxwBTFZiVvNg87ubHF/ipTY/LMt+5Z+YFbPETzgh5
+        oG+XMTqL+xceKXHxnyHC1DVPUoEiugmgBxFSKfNHoG5ptTADvQnSta8ndWFmVx/5tbc10T
+        RncbRN40bX6WCNe0BuiJQap33+5+UlYVe5z3S7mQjdL9U2slio3HYtVm/QbPWwDCseCTJQ
+        nkdhLddatVt1+T0f4MD5D192f+2ZFCQZY62s0GM05yvpEyXHygeSiI2O9qrl0xuT8oR34j
+        b4S9+NX1ySk3JljCzPCvPnG5pjXPZqz0oCOk2fBoREVMiCDOzuJy0LNAnEdglV6GcJJ0et
+        b6gbgQ7uKFOYqY48uGLAHG/0VAxihQSQbDaMPMxPDy7zwTKyv6ChfL+rRLuaPkNKWUo1DU
+        4du482LZTCWuT2O90hfw8VVqopyVOQAAAAMBAAEAAAGAAKgMCSQGrj/GWI9psu9VVFW4O3
+        Z0ZR9JwL68l3Ul79DCl10LP1C7dh4guspRlRvgKLHxzFU6povFeHC2WdnjdWCLzu4A501V
+        Q87l7yjNFBsuFX6S7khfLlo5wiBT3bKn0PeJIGlm982YlvnvJUQ0o0dZB32O2L7YzSSDtU
+        j/TBWdd+zykeYkkNMSKMC+zauIuePxCjVpH653rA4ApReWsUnW+OCfZhTa9ZNhYLqXmc/k
+        KtbsgGqCrI5te+o08AStZpEV/2zn2Z2GGCxS+zenJGBvmmXtI/vruknzj2f93TKfg9SjLv
+        G0UhjGtA6ugW33/h8rma/p3ZIAKinVqv3D3dAJbb0Ez/oFyo6YTkn0cFGdS81zhNRvHFij
+        uT4j/lEYElO0SmltpiO01G277GKcJdy9n+HRFVEzuA9o4uhuHbii4soZxXN0ik8EN3VJAz
+        dbYpwxUSg2/K7VXcxTy+ZHNOYKIAOqL0cr73Wv/dQ0ucvp4efsBDWKA/05vKiEQlSJAAAA
+        wElEt7yPr+nzAUSeIAHQKJyIfHffeQyWl7QPIlDVuuQuOlMJCQXObBUbZNm8kv+ksUKyWZ
+        EEuQsUpMaifcvspTr2DxknbaBtZJVxV4b83Q2wvelD55+KjocNfv/LOfFeYi2ievtTOFFz
+        WDzxwytVM+4fWCYvYwCwzzNu1iqJ0kxAzWA/nReA5gtfr6Jpr6f7HICWJ905kmnMxaGxnd
+        6izsRzPOuvgzL9xjJBaDWF6mxjV11oI90ApYNwzNMKsD3tLgAAAMEAy92F/hRvdPBJ3pkL
+        Rd1oytFDOyorzV3imONws9QQWOyrmRHUZlYy980EH7r8IWfDnEIqJpihIopsgptAmYZQYE
+        rF2fta66XZuzFqne9UivXdUBLatEbpgdGsC04OuMJmPBpNWjM8lYjl5QgdEJeVbq0z6jbA
+        rJjz5L7ybWwyFa2EpSl5CYryyPaEvYkROuhv5+3yNB2hCVG0sMgA8Af6geCER9nTVOY/y5
+        skBPVluYtJInYRGiapczfuwqzRX/ddAAAAwQC4cJYjpZ2QvT8bOEh9Sh/fRaM+gAdpFANQ
+        dnPmLUpxq+iGhV5uqI3JQIakdhDTihM/UbQUzhXQqfM5PpriyPvEsY7bOg0ByvAPNBa6r4
+        YkedNDb0ar9tePKu70L5svAY/hXLEENZuX2yxTikJz7/O5lPzVeq0zTxSh02M5/+x99qPp
+        oStG339zU1K+rq8C25UpgKrtI33VkULi8mly3bEH/Q+6ywPB/gAHm++7JahndOyIgPEsAA
+        T1cjEVzCLUQ40AAAANYXJ0dXJAQ3Jvbm9zcwECAwQFBg==
+        -----END OPENSSH PRIVATE KEY-----  
+        
+    ed25519_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4ODJbYiAATgkf3vNgowTp7R4KocaYW5q4iQBK8iOMzkucO6/Cueolrje6rzP5HC5CGJ7b2xE5E7YvdRwYfxi8WQkMdkccAUxWYlbzYPO7mxxf4qU2PyzLfuWfmBWzxE84IeaBvlzE6i/sXHilx8Z8hwtQ1T1KBIroJoAcRUinzR6BuabUwA70J0rWvJ3VhZlcf+bW3NdE0Z3G0TeNG1+lgjXtAboiUGqd9/uflJWFXuc90u5kI3S/VNrJYqNx2LVZv0Gz1sAwrHgkyUJ5HYS3XWrVbdfk9H+DA+Q9fdn/tmRQkGWOtrNBjNOcr6RMlx8oHkoiNjvaq5dMbk/KEd+I2+EvfjV9ckpNyZYwszwrz5xuaY1z2as9KAjpNnwaERFTIggzs7ictCzQJxHYJVehnCSdHrW+oG4EO7ihTmKmOPLhiwBxv9FQMYoUEkGw2jDzMTw8u88Eysr+goXy/q0S7mj5DSllKNQ1OHbuPNi2Uwlrk9jvdIX8PFVaqKclTk= artur@Cronoss      
+
+
+    ssh_deletekeys: false
+
+write_files:
+  - path: "/usr/local/etc/ansible.sh"
+    permissions: "755"
+    content: |
+        # Add Docker's official GPG key:
+        python3 -m pip install --user ansible
+    defer: true        
+runcmd:
+  - ["/usr/local/etc/ansible.sh"]  
+
