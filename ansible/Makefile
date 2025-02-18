@@ -5,7 +5,7 @@ BASE_DIR=$(shell pwd)
 ANSIBLE_CONFIG=${BASE_DIR}/ansible.cfg
 
 role-init:
-		ansible-galaxy init ansible/roles/${role}
+		ansible-galaxy init roles/${role}
 
 
 play-check:

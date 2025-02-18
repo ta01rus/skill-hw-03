@@ -1,11 +1,15 @@
-- hosts: vbox 
-  gather_facts: false 
+- hosts: database
+  gather_facts: true 
   become: true
   become_user: root
   become_method: sudo
-  vars_files:    
-    - "{{container_dir}}/secrets.yml"
-    - "{{container_dir}}/config.yml"      
-  roles:
-    - role: '{{ roles_dir }}/users'
-    - role: '{{ roles_dir }}/php'
+  tasks:
+    - name: install centos 9 docker 
+      import_role:
+        name: "{{ roles_dir }}/postgres/centos"
+      when: ansible_facts['distribution'] == "CentOS"           
+
+    - name: install ubuntu docker 
+      import_role:
+        name: "{{ roles_dir }}/postgres/ubuntu"
+      when: ansible_facts['distribution'] == "Ubuntu"           
