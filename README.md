@@ -10,14 +10,3 @@
 Протестировать написанный плейбук.
     Выложить плейбук и inventory в GitHub. Создайте отдельный репозиторий Ansible.
     Прислать ментору ссылку на репозиторий с плейбуком.
-
-write_files:
-  - path: "/usr/local/etc/sshgen.sh"  
-    permissions: "755"
-    content: | 
-        #!/bin/bash
-        mkdir /home/ansible/.ssh &&
-        yes | ssh-keygen -o -t rsa -b 4096 -f /home/ansible/.ssh/id_rsa -N "" && 
-        ssh-copy-id ansible@192.168.0.11 
-        && ssh-copy-id ansible@192.168.0.12
-    defer: true
