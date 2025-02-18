@@ -1,5 +1,12 @@
 
-YATERR:
-	terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<название_платформы_1> -platform=<название_платформы_2> yandex-cloud/yandex
+include .env
+BASE_DIR=$(shell pwd)
+ANSIBLE_CONFIG=${BASE_DIR}/ansible.cfg
+
+terra-play:
+	cd  ./terraform && terraform apply 
+
+terra-destroy:
+	 cd  ./terraform && terraform destroy
 
 

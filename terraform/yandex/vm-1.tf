@@ -4,7 +4,7 @@ resource "yandex_compute_disk" "vm-1" {
   type     = "network-hdd"
   zone     = local.zone
   size     = "10"
-  image_id = local.image_id_ubuntu
+  image_id = local.image_id
 }
 
 resource "yandex_compute_instance" "vm-1" {
@@ -27,12 +27,12 @@ resource "yandex_compute_instance" "vm-1" {
   network_interface {
     index     = 1
     subnet_id = yandex_vpc_subnet.net-d.id
-    nat = true    
-    ip_address = "192.168.0.10"    
+    ip_address = "192.168.0.11"    
   }
+
+
   metadata = {
     # для каждого создал отдельный 
-    user-data = "${file(local.cloud_init_vm1)}"
-    ssh-keys = "${file("~/.ssh/id_rsa.pub")}"
+    user-data = "${file(local.cloud_init_vm)}"
   }
 }

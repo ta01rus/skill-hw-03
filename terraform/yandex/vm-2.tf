@@ -1,14 +1,14 @@
 
-resource "yandex_compute_disk" "vm-1" {
-  name     = "boot-disk-vm-1"
+resource "yandex_compute_disk" "vm-2" {
+  name     = "boot-disk-vm-2"
   type     = "network-hdd"
   zone     = local.zone
   size     = "10"
-  image_id = local.image_id_ubuntu
+  image_id = local.image_id
 }
 
-resource "yandex_compute_instance" "vm-1" {
-  name = "vm-1"  
+resource "yandex_compute_instance" "vm-2" {
+  name = "vm-2"  
   folder_id = local.folder_id
 
   platform_id = "standard-v1" # тип процессора (Intel Broadwell)
@@ -21,18 +21,16 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   boot_disk {
-   disk_id = yandex_compute_disk.vm-1.id
+    disk_id = yandex_compute_disk.vm-2.id
   }
 
   network_interface {
     index     = 1
     subnet_id = yandex_vpc_subnet.net-d.id
-    nat = true    
-    ip_address = "192.168.0.10"    
+    ip_address = "192.168.0.12"    
   }
+
   metadata = {
-    # для каждого создал отдельный 
-    user-data = "${file(local.cloud_init_vm1)}"
-    ssh-keys = "${file("~/.ssh/id_rsa.pub")}"
+   user-data = "${file(local.cloud_init_vm)}"
   }
 }

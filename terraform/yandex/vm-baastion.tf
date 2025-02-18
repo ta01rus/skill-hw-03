@@ -1,14 +1,15 @@
 
-resource "yandex_compute_disk" "vm-1" {
-  name     = "boot-disk-vm-1"
+resource "yandex_compute_disk" "boot-disk-bastion" {
+  name     = "boot-disk-3"
+  folder_id = local.folder_id
   type     = "network-hdd"
   zone     = local.zone
   size     = "10"
-  image_id = local.image_id_ubuntu
+  image_id = local.image_id
 }
 
-resource "yandex_compute_instance" "vm-1" {
-  name = "vm-1"  
+resource "yandex_compute_instance" "vm-bastion" {
+  name = "bastion"  
   folder_id = local.folder_id
 
   platform_id = "standard-v1" # тип процессора (Intel Broadwell)
@@ -21,18 +22,19 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   boot_disk {
-   disk_id = yandex_compute_disk.vm-1.id
+    disk_id = yandex_compute_disk.boot-disk-bastion.id
   }
 
   network_interface {
     index     = 1
     subnet_id = yandex_vpc_subnet.net-d.id
-    nat = true    
-    ip_address = "192.168.0.10"    
+    ip_address = "192.168.0.10"
+    nat = true
+    nat_ip_address = yandex_vpc_address.addr.external_ipv4_address[0].address
+
   }
+
   metadata = {
-    # для каждого создал отдельный 
-    user-data = "${file(local.cloud_init_vm1)}"
-    ssh-keys = "${file("~/.ssh/id_rsa.pub")}"
+    user-data = "${file(local.cloud_init_bastion)}"
   }
 }

@@ -18,7 +18,7 @@ resource "yandex_compute_instance" "vm-2" {
     core_fraction = 5 # Гарантированная доля vCPU
     cores  = 2 // количество процессоров 
     memory = 1 // объем оперативной памяти Гб
-  }
+  }  
 
   boot_disk {
     disk_id = yandex_compute_disk.vm-2.id
@@ -26,11 +26,13 @@ resource "yandex_compute_instance" "vm-2" {
 
   network_interface {
     index     = 1
-    subnet_id = yandex_vpc_subnet.net-d.id
+    subnet_id = yandex_vpc_subnet.net-d.id    
+    nat = true    
     ip_address = "192.168.0.11"        
   }
   metadata = {
     # для каждого создал отдельный 
-    user-data = "${file(local.cloud_init_vm2)}"
+    user-data = "${file(local.cloud_init_vm1)}"
+    ssh-keys = "${file("~/.ssh/id_rsa.pub")}"
   }
 }

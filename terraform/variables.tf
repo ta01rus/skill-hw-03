@@ -10,8 +10,6 @@ locals {
     cloud_init_vm2 = "/media/artur/data/projects/skill-hw-03/terraform/auth/init-vm-1.yaml"    
     cloud_init_vm3 = "/media/artur/data/projects/skill-hw-03/terraform/auth/init-vm-3.yaml"    
 
-
-
     // авторизация 
     key_file  = "/media/artur/data/projects/skill-hw-03/terraform/auth/authorized_key.json"
 }
@@ -22,8 +20,8 @@ locals {
     image_id_ubuntu = "fd8m5hqeuhbtbhltuab4"
     family_id_ubuntu = "ubuntu-2404-lts-oslogin"    
 
-    image_id_centos7 = "fd8a38b9mlcut9k1jl2a"   
-    family_id_centos7 = "centos-7"    
+    image_id_centos7 = "fd8qfp90a5l0m3d2htrm"   
+    family_id_centos7 = "centos-stream-8"    
 
     
     registry_name    = "test"

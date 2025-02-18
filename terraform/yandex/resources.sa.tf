@@ -1,5 +1,4 @@
 // Create SA
-
 resource "yandex_iam_service_account" "sa" {
   folder_id = local.folder_id
   name      = "tf-turar-sa"
@@ -23,10 +22,4 @@ resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-pul
   folder_id = local.folder_id
   role      = "container-registry.images.puller"
   member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
-}
-
-resource "yandex_iam_service_account_key" "sa-ssh-key" {
-  service_account_id = yandex_iam_service_account.sa.id
-  description        = "key for service account"
-  key_algorithm      = "RSA_4096"
 }
