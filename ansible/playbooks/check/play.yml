@@ -1,8 +1,0 @@
-- hosts: app
-  gather_facts: true 
-  tasks: 
-      - name: check group  # имя задания 
-        template:
-          src: ./templates/check.j2
-          dest: /tmp/check
-      

@@ -1,11 +1,31 @@
-- hosts: vbox 
-  gather_facts: false 
+- hosts: vbox
+  gather_facts: true 
   become: true
   become_user: root
   become_method: sudo
-  vars_files:    
-    - "{{container_dir}}/secrets.yml"
-    - "{{container_dir}}/config.yml"      
-  roles:
-    - role: '{{ roles_dir }}/users'
-    - role: '{{ roles_dir }}/http'
+  tasks:
+      # - name: Echo message and connection type
+      #   ansible.builtin.shell: "echo '{{ message }}' ; echo 'Connection type: {{ ansible_connection }}'"
+      #   register: echo_output
+
+      # - name: Display output
+      #   ansible.builtin.debug:
+      #     msg: "{{ echo_output.stdout_lines }}"
+        
+        # msg: "{{ ansible_facts['distribution_release'] }}" 
+    # - debug:
+    #     var: hostvars.vbox
+    - debug:
+        msg: "{{ ansible_facts['distribution'] }}"
+    # - debug:
+    #     msg: "{{ ansible_distribution_release }}"        
+    
+    - name: Pass variables to role 
+      import_role:
+        name: "{{ roles_dir }}/docker/centos"
+      when: ansible_facts['distribution'] == "CentOS"           
+
+    - name: Pass variables to role 
+      import_role:
+        name: "{{ roles_dir }}/docker/ubuntu"
+      when: ansible_facts['distribution'] == "Ubuntu"           

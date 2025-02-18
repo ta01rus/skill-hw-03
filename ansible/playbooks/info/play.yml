@@ -1,0 +1,8 @@
+- hosts: vbox
+  gather_facts: true 
+  tasks: 
+    - name: check group {{ansible_distribution}}
+      ansible.builtin.template:
+        src: ./templates/check.j2
+        dest: /tmp/info.txt
+      
